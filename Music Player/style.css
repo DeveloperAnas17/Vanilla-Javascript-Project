@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  background-image: linear-gradient(
+    0deg,
+    rgba(247, 247, 247, 1) 23.8%,
+    rgba(252, 221, 221, 1) 92%
+  );
+}
+
+h1,
+h2,
+h3 {
+  color: #363636;
+}
+
+.app {
+  min-height: 100vh;
+  transition: 0.5s ease !important;
+  transition-property: background, padding-left !important;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.5rem 0;
+}
+
+nav > button {
+  border: 2px solid #363636;
+  padding: 0.5rem;
+  background: transparent;
+  cursor: pointer;
+}
+
+.song-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.song-container > img {
+  width: 23.2%;
+  border-radius: 50%;
+  -webkit-filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.180392));
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.180392));
+  box-shadow: 0 20px 20px 0 rgba(252, 169, 169, 0.6);
+}
+
+.song-container h2 {
+  padding: 1.7rem 1rem 1rem;
+  font-size: 2rem;
+}
+
+.song-container h3 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.play-control,
+.player,
+.time-control {
+  display: flex;
+  justify-content: space-between;
+}
+
+.player {
+  min-height: 20vh;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 1.7rem;
+}
+
+.play-control,
+.time-control {
+  align-items: center;
+}
+
+.time-control {
+  position: relative;
+  width: 50%;
+  padding-bottom: 1.7rem;
+}
+
+.cont {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  transform: translate(120%, -1.4rem);
+  width: 2.4rem;
+  height: 7.5rem;
+}
+
+.track2 {
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: 10rem;
+  background: #3aac77;
+  height: 1.6rem;
+  transform: rotate(-90deg) translate(50%);
+  width: 7rem;
+  transition: 0.2s ease;
+}
+
+.track2 input {
+  background: transparent;
+  opacity: 0;
+  -webkit-appearance: none;
+  background: #d4d4d4;
+  width: 100%;
+  height: 100%;
+  padding: 0.1rem 0.2rem;
+}
+
+.passedVolume,
+.track {
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  transform: translateX(0);
+  background: #d4d4d4;
+}
+
+.time {
+  padding: 0.8rem;
+}
+.time-control .timeInput {
+  width: 100%;
+  cursor: pointer;
+  -webkit-appearance: none;
+  background: transparent;
+  transition: unset !important;
+}
+
+.timeInput {
+  height: 100%;
+}
+
+.track {
+  position: relative;
+  width: 100%;
+  border-radius: 10rem;
+  overflow: hidden;
+}
+
+.play-control {
+  width: 45%;
+}
+
+.action-btn {
+  background: #fff;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.action-btn-big {
+  font-size: 30px;
+}
+
+.action-btn:focus {
+  outline: 0;
+}

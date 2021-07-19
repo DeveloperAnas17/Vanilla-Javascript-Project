@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <link rel="stylesheet" href="./style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <nav>
+        <h1>Waves</h1>
+        <button>Libarary <i class="fas fa-music"></i></button>
+      </nav>
+      <div class="song-container">
+        <img src="./images/day-light.jpg" alt="" />
+        <h2>Daylight</h2>
+        <h3>Aiguille</h3>
+      </div>
+
+      <div class="player">
+        <div class="time-control">
+          <div class="cont">
+            <i class="fas fa-volume-up"></i>
+            <div class="track2">
+              <input type="range" max="100" min="0" />
+              <div
+                class="passedVolume"
+                style="transform: translateX(100%)"
+              ></div>
+            </div>
+          </div>
+          <span class="time">0:00</span>
+          <div
+            class="track"
+            style="
+              background: linear-gradient(
+                to right,
+                rgb(239, 142, 169),
+                rgb(171, 65, 127)
+              );
+            "
+          >
+            <input type="timeInput" min="0" max="146.86" type="range" />
+            <div class="passedTime" style="transform: translateX(0%)"></div>
+          </div>
+          <span class="time">2:17</span>
+        </div>
+        <div class="play-control">
+          <button class="action-btn">
+            <i class="fas fa-random"></i>
+          </button>
+          <button class="action-btn">
+            <i class="fas fa-angle-left"></i>
+          </button>
+          <button class="action-btn action-btn-big">
+            <i class="fas fa-play"></i>
+          </button>
+          <button class="action-btn"><i class="fas fa-angle-right"></i></button>
+          <button class="action-btn"><i class="fas fa-infinity"></i></button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./main.js"></script>
+</html>
