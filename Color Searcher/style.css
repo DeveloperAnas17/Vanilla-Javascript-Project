@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+}
+
+
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-input {
+    padding: 8px;
+    width: 300px;
+    margin-bottom: 5rem;
+    font-size: 22px;
+
+}
+
+.colors {
+    display: flex;
+    align-items: center;
+}
+
+.color {
+    height: 100px;
+    width: 100px;
+    background-color: royalblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h3 {
+    color: white;
+    font-weight: bold;
+    display: none;
+}
+
+.color1{
+    background: red;
+}
+
+.color2{
+    background: blue;
+}
+.color3{
+    background: purple;
+}
+
+.color4{
+    background: yellow;
+}
+
+.color5{
+    background: black;
+}
+
+.color6{
+    background: green;
+}
+
+.color7{
+    background: gray;
+}
+
+.color8{
+    background: brown;
+}
+
+.color9{
+    background: coral;
+}
+
+.color10{
+    background: crimson;
+}
