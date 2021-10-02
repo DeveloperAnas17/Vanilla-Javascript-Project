@@ -2,7 +2,7 @@
 
 const section = document.querySelector("section");
 const playerLivesCount = document.querySelector("span");
-const playerLives = 0;
+let playerLives = 6;
 
 // Link text
 playerLivesCount.textContent = playerLives;
@@ -67,6 +67,7 @@ const checkCards = (e) => {
   const clickCard = e.target;
   clickCard.classList.add("flipped");
   const flippedCards = document.querySelectorAll(".flipped");
+  const toggleCard = document.querySelectorAll(".toggleCard");
   // Logic
   if (flippedCards.length === 2) {
     if (
@@ -74,14 +75,52 @@ const checkCards = (e) => {
       flippedCards[1].getAttribute("name")
     ) {
       console.log("Match");
+      flippedCards.forEach((card) => {
+        card.classList.remove("flipped");
+        card.style.pointerEvents = "none";
+      });
+      playerLives++;
+      playerLivesCount.textContent = playerLives;
     } else {
       console.log("Dont Match");
       flippedCards.forEach((card) => {
         card.classList.remove("flipped");
         setTimeout(() => card.classList.remove("toggleCard"), 1000);
       });
+      playerLives--;
+      playerLivesCount.textContent = playerLives;
+
+      if (playerLives === 0) {
+        restart("Try Again");
+      }
     }
   }
+  // Run a check if we won the game
+  if (toggleCard.length === 16) {
+    restart("You Won");
+  }
+};
+
+// Restart
+const restart = (text) => {
+  let cardData = randomize();
+  let faces = document.querySelectorAll(".face");
+  let cards = document.querySelectorAll(".card");
+  section.style.pointerEvents = "none";
+  cardData.forEach((item, index) => {
+    cards[index].classList.remove("toggleCard");
+    // Randomize
+    setTimeout(() => {
+      cards[index].style.pointerEvents = "all";
+      faces[index].src = item.imgSrc;
+      cards[index].setAttribute("name", item.name);
+      section.style.pointerEvents = "all";
+    }, 1000);
+  });
+  playerLives = 6;
+  playerLivesCount.textContent = playerLives;
+
+  setTimeout(() => window.alert(text), 1000);
 };
 
 cardGenerator();
