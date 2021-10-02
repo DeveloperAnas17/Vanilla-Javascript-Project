@@ -16,7 +16,6 @@ const getData = () => [
   { imgSrc: "./images/captain-america.jpg", name: "Captain America" },
   { imgSrc: "./images/spiderman.jpg", name: "SpiderMan" },
   { imgSrc: "./images/drstrange.jpg", name: "Dr Strange" },
-  //   { imgSrc: "./images/black-widow.jpg", name: "Black Widow" },
   { imgSrc: "./images/loki.jpg", name: "Loki" },
   { imgSrc: "./images/thanos.jpg", name: "Thanos" },
   { imgSrc: "./images/hulk.jpg", name: "Hulk" },
@@ -25,7 +24,6 @@ const getData = () => [
   { imgSrc: "./images/captain-america.jpg", name: "Captain America" },
   { imgSrc: "./images/spiderman.jpg", name: "SpiderMan" },
   { imgSrc: "./images/drstrange.jpg", name: "Dr Strange" },
-  //   { imgSrc: "./images/black-widow.jpg", name: "Black Widow" },
   { imgSrc: "./images/loki.jpg", name: "Loki" },
   { imgSrc: "./images/thanos.jpg", name: "Thanos" },
 ];
@@ -41,7 +39,49 @@ const randomize = () => {
 const cardGenerator = () => {
   const cardData = randomize();
   // Genrate the HTML
-  const card = document.createElement("div");
+
+  cardData.forEach((item, index) => {
+    const card = document.createElement("div");
+    const face = document.createElement("img");
+    const back = document.createElement("div");
+    card.classList = "card";
+    face.classList = "face";
+    back.classList = "back";
+    // Attach the info to the cards
+    face.src = item.imgSrc;
+    card.setAttribute("name", item.name);
+    // Attack the cards to the sections
+    section.appendChild(card);
+    card.appendChild(face);
+    card.appendChild(back);
+
+    card.addEventListener("click", (e) => {
+      card.classList.toggle("toggleCard");
+      checkCards(e);
+    });
+  });
+};
+
+// Check Cards
+const checkCards = (e) => {
+  const clickCard = e.target;
+  clickCard.classList.add("flipped");
+  const flippedCards = document.querySelectorAll(".flipped");
+  // Logic
+  if (flippedCards.length === 2) {
+    if (
+      flippedCards[0].getAttribute("name") ===
+      flippedCards[1].getAttribute("name")
+    ) {
+      console.log("Match");
+    } else {
+      console.log("Dont Match");
+      flippedCards.forEach((card) => {
+        card.classList.remove("flipped");
+        setTimeout(() => card.classList.remove("toggleCard"), 1000);
+      });
+    }
+  }
 };
 
 cardGenerator();
